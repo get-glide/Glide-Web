@@ -1,0 +1,14 @@
+/* ============================================================
+   Glide marketing site — global stylesheet entry point.
+   Ported from .claude/skills/glide-design-system/styles.css —
+   this file is an @import manifest only, same token set as the
+   product apps so the site and the app always match.
+   ============================================================ */
+
+@import './tokens/fonts.css';
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/effects.css';
+@import './tokens/dark.css';
+@import './tokens/base.css';

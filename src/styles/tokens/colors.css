@@ -1,0 +1,111 @@
+/* ============================================================
+   Glide — Color tokens
+   Calm, warm-paper base + soft periwinkle "Glide" primary,
+   with playful sage / apricot / lilac accents.
+   ============================================================ */
+
+:root {
+  /* ---- Neutrals: warm paper & soft ink ---- */
+  --paper-0:   #ffffff;
+  --paper-50:  #fbf9f4;  /* app background */
+  --paper-100: #f5f1e9;  /* raised surface / sunken wells */
+  --paper-200: #ece6da;  /* hairline fills */
+  --paper-300: #ded6c6;  /* borders on paper */
+
+  --ink-900: #292933;    /* primary text (soft warm black) */
+  --ink-700: #45454f;    /* strong secondary text */
+  --ink-500: #6c6c78;    /* secondary text */
+  --ink-400: #9895a1;    /* muted / placeholder */
+  --ink-300: #c3bfc9;    /* disabled text */
+
+  /* ---- Primary: Glide periwinkle ---- */
+  --glide-50:  #f2f4fe;
+  --glide-100: #e6eafd;
+  --glide-200: #cdd5fb;
+  --glide-300: #aab6f7;
+  --glide-400: #8a97f2;
+  --glide-500: #6c7bf0;  /* primary */
+  --glide-600: #5462df;  /* hover */
+  --glide-700: #4450c2;  /* press */
+  --glide-900: #2b3175;
+
+  /* ---- Sage: calm success / focus green ---- */
+  --sage-50:  #eef7f2;
+  --sage-100: #dcefe6;
+  --sage-300: #a5d6c1;
+  --sage-500: #5fae92;
+  --sage-600: #4c9a7e;
+  --sage-700: #3c7d66;
+
+  /* ---- Apricot: warm playful accent / streaks ---- */
+  --apricot-50:  #fdf3ec;
+  --apricot-100: #fbe6d8;
+  --apricot-300: #f6c3a1;
+  --apricot-500: #ee9a6b;
+  --apricot-600: #dd7f4c;
+  --apricot-700: #bd6537;
+
+  /* ---- Lilac: gentle tertiary accent ---- */
+  --lilac-50:  #f6f2fc;
+  --lilac-100: #ede4f8;
+  --lilac-300: #cdb6ec;
+  --lilac-500: #a888dd;
+  --lilac-600: #916dc9;
+
+  /* ---- Danger: soft coral red ---- */
+  --coral-50:  #fdf0ee;
+  --coral-100: #fadcd7;
+  --coral-500: #e2776a;
+  --coral-600: #cf5f51;
+  --coral-700: #b0483b;
+
+  /* ---- Amber: warning ---- */
+  --amber-100: #fbecc8;
+  --amber-500: #e0a63c;
+  --amber-700: #a9761d;
+
+  /* ============================================================
+     Semantic aliases — reach for these in components
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-app:      var(--paper-50);
+  --surface-card:     var(--paper-0);
+  --surface-sunken:   var(--paper-100);
+  --surface-raised:   var(--paper-0);
+  --surface-tint:     var(--glide-50);
+  --surface-overlay:  rgba(41, 41, 51, 0.32);
+
+  /* Text */
+  --text-strong:      var(--ink-900);
+  --text-body:        var(--ink-700);
+  --text-muted:       var(--ink-500);
+  --text-faint:       var(--ink-400);
+  --text-on-primary:  #ffffff;
+  --text-link:        var(--glide-600);
+
+  /* Borders */
+  --border-soft:      var(--paper-200);
+  --border-default:   var(--paper-300);
+  --border-strong:    #cdc6b8;
+  --border-focus:     var(--glide-500);
+
+  /* Brand / interactive */
+  --primary:          var(--glide-500);
+  --primary-hover:    var(--glide-600);
+  --primary-press:    var(--glide-700);
+  --primary-tint:     var(--glide-100);
+
+  /* Semantic status */
+  --success:          var(--sage-600);
+  --success-tint:     var(--sage-100);
+  --warning:          var(--amber-500);
+  --warning-tint:     var(--amber-100);
+  --danger:           var(--coral-500);
+  --danger-tint:      var(--coral-100);
+  --info:             var(--glide-500);
+  --info-tint:        var(--glide-100);
+
+  /* Focus ring */
+  --ring: 0 0 0 3px rgba(108, 123, 240, 0.35);
+}
