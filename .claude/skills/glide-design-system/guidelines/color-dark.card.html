@@ -1,0 +1,35 @@
+<!-- @dsCard group="Colors" viewport="700x260" name="Dark mode — purple" subtitle="Night theme: plum-ink surfaces + luminous purple primary" -->
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-body);padding:0}
+  .dark{background:var(--surface-app);padding:20px}
+  .top{display:flex;gap:10px;margin-bottom:14px}
+  .sw{flex:1;height:78px;border-radius:var(--radius-md);display:flex;flex-direction:column;justify-content:flex-end;padding:10px;box-shadow:var(--shadow-xs)}
+  .sw span{font-size:11px;font-weight:600;font-family:var(--font-mono)}
+  .sw small{font-size:10px;opacity:.85;font-family:var(--font-mono)}
+  .row{display:flex;gap:10px;align-items:center}
+  .surf{flex:1;height:52px;border-radius:var(--radius-sm);border:1px solid var(--border-default);display:flex;align-items:center;padding:0 12px;font-family:var(--font-mono);font-size:11px}
+  .btn{background:var(--primary);color:var(--text-on-primary);font-weight:600;font-size:13px;padding:10px 16px;border-radius:var(--radius-sm);box-shadow:var(--shadow-glide)}
+</style>
+<div class="dark">
+  <div class="top">
+    <div class="sw" style="background:var(--purple-300)"><span style="color:#1b1826">300</span><small style="color:#1b1826">#b299f6</small></div>
+    <div class="sw" style="background:var(--purple-400)"><span style="color:#fff">400 · hover</span><small style="color:#fff">#9a7bef</small></div>
+    <div class="sw" style="background:var(--purple-500)"><span style="color:#fff">500 · primary</span><small style="color:#fff">#8b6ef0</small></div>
+    <div class="sw" style="background:var(--purple-600)"><span style="color:#fff">600 · press</span><small style="color:#fff">#7c5ce8</small></div>
+    <div class="sw" style="background:var(--purple-700)"><span style="color:#fff">700</span><small style="color:#fff">#6a49d6</small></div>
+  </div>
+  <div class="row" style="margin-bottom:12px">
+    <div class="surf" style="background:var(--surface-app);color:var(--text-faint)">app · #14121c</div>
+    <div class="surf" style="background:var(--surface-card);color:var(--text-muted)">card · #1b1826</div>
+    <div class="surf" style="background:var(--surface-sunken);color:var(--text-muted)">sunken · #221e30</div>
+  </div>
+  <div class="row">
+    <span style="color:var(--text-strong);font-weight:700;font-size:15px">Study, gently.</span>
+    <span style="color:var(--text-body);font-size:13px">body text</span>
+    <span style="color:var(--text-muted);font-size:13px">muted</span>
+    <span style="flex:1"></span>
+    <span class="btn">Start focusing</span>
+  </div>
+</div>

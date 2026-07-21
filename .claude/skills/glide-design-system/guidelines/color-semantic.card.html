@@ -1,0 +1,16 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Semantic status" subtitle="Success, warning, danger, info — with tints" -->
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;background:var(--surface-app);font-family:var(--font-body);padding:20px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .cell{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border-soft)}
+  .bar{height:44px;display:flex;align-items:center;padding:0 12px;color:#fff;font-weight:600;font-size:13px}
+  .tint{height:28px;display:flex;align-items:center;padding:0 12px;font-size:12px;font-weight:600}
+</style>
+<div class="grid">
+  <div class="cell"><div class="bar" style="background:var(--success)">Success</div><div class="tint" style="background:var(--success-tint);color:var(--sage-700)">tint</div></div>
+  <div class="cell"><div class="bar" style="background:var(--warning)">Warning</div><div class="tint" style="background:var(--warning-tint);color:var(--amber-700)">tint</div></div>
+  <div class="cell"><div class="bar" style="background:var(--danger)">Danger</div><div class="tint" style="background:var(--danger-tint);color:var(--coral-700)">tint</div></div>
+  <div class="cell"><div class="bar" style="background:var(--info)">Info</div><div class="tint" style="background:var(--info-tint);color:var(--glide-700)">tint</div></div>
+</div>

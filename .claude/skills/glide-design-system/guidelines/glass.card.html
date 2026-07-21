@@ -1,0 +1,18 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Liquid glass" subtitle="Restrained frosted-glass accent for floating chrome only" -->
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-body);padding:0}
+  .wash{height:100%;background-image:var(--wash-glide), var(--wash-sage), var(--wash-apricot);background-color:var(--paper-100);padding:22px;display:flex;gap:16px;align-items:stretch}
+  .pane{border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:flex-end;padding:16px;flex:1}
+  .g1{background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow-sm);backdrop-filter:blur(14px) saturate(var(--glass-saturate));-webkit-backdrop-filter:blur(14px) saturate(var(--glass-saturate));}
+  .g2{background:var(--glass-bg-strong);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-saturate));-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-saturate));}
+  .g3{background:var(--glass-bg-strong);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);backdrop-filter:blur(var(--glass-blur-lg)) saturate(var(--glass-saturate));-webkit-backdrop-filter:blur(var(--glass-blur-lg)) saturate(var(--glass-saturate));}
+  .lbl{font-family:var(--font-mono);font-size:11px;color:var(--text-strong);font-weight:600}
+  .dot{width:36px;height:36px;border-radius:50%;background:var(--glide-500);margin-bottom:40px}
+</style>
+<div class="wash">
+  <div class="pane g1"><div class="dot"></div><div class="lbl">blur 14px · sm</div></div>
+  <div class="pane g2"><div class="dot"></div><div class="lbl">blur 22px · default</div></div>
+  <div class="pane g3"><div class="dot"></div><div class="lbl">blur 36px · lg</div></div>
+</div>

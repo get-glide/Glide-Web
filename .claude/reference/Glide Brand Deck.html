@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glide — Brand & Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper-50:#fbf9f4; --paper-100:#f5f1e9; --paper-200:#ece6da; --paper-300:#ded6c6;
+    --ink-900:#292933; --ink-700:#45454f; --ink-500:#6c6c78; --ink-400:#9895a1;
+    --glide-50:#f2f4fe; --glide-100:#e6eafd; --glide-300:#aab6f7; --glide-500:#6c7bf0; --glide-600:#5462df; --glide-700:#4450c2; --glide-900:#2b3175;
+    --sage-100:#dcefe6; --sage-500:#5fae92; --sage-600:#4c9a7e; --sage-700:#3c7d66;
+    --apricot-50:#fdf3ec; --apricot-100:#fbe6d8; --apricot-500:#ee9a6b; --apricot-600:#dd7f4c; --apricot-700:#bd6537;
+    --lilac-100:#ede4f8; --lilac-500:#a888dd; --lilac-600:#916dc9;
+    --coral-500:#e2776a;
+    --disp:'Bricolage Grotesque',sans-serif; --body:'Hanken Grotesk',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  html,body{margin:0}
+  deck-stage:not(:defined){visibility:hidden}
+  section{
+    font-family:var(--body); color:var(--ink-700); background:var(--paper-50);
+    box-sizing:border-box; overflow:hidden;
+  }
+  h1,h2,h3{font-family:var(--disp); color:var(--ink-900); margin:0; letter-spacing:-0.02em; line-height:1.04;}
+  p{margin:0;}
+  .eyebrow{font-family:var(--body); font-size:20px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-400);}
+  .pad{padding:110px 130px;}
+  .mono{font-family:var(--mono);}
+  .chip{display:inline-flex; align-items:center; gap:12px; border-radius:999px; font-weight:600;}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- 1 · TITLE -->
+  <section data-label="Title" style="padding:0;">
+    <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:0 130px;">
+      <div style="display:flex; align-items:center; gap:28px; margin-bottom:52px;">
+        <img src="../assets/logo-mark.svg" width="104" height="104" alt="Glide">
+        <span style="font-family:var(--disp); font-weight:700; font-size:62px; letter-spacing:-2px; color:var(--ink-900);">Glide</span>
+      </div>
+      <h1 style="font-size:132px; font-weight:800; max-width:1250px;">Study, gently.</h1>
+      <p style="font-size:34px; color:var(--ink-500); margin-top:36px; max-width:1000px; line-height:1.4;">
+        The brand &amp; design system behind Glide — a calm, playful study app for high&#8209;school and college students, on Mac and iPhone.
+      </p>
+      <div style="position:absolute; bottom:96px; left:130px; display:flex; gap:14px;">
+        <span class="chip" style="background:var(--glide-100); color:var(--glide-700); padding:12px 22px; font-size:22px;">Design system</span>
+        <span class="chip" style="background:var(--sage-100); color:var(--sage-700); padding:12px 22px; font-size:22px;">iOS · macOS</span>
+        <span class="chip" style="background:var(--apricot-100); color:var(--apricot-700); padding:12px 22px; font-size:22px;">v1 · draft</span>
+      </div>
+    </div>
+    <div style="position:absolute; top:0; right:0; width:620px; height:100%; background-image:var(--wash-glide),var(--wash-apricot); background-color:var(--paper-100); border-left:1px solid var(--paper-200); backdrop-filter:blur(2px);"></div>
+    <img src="../assets/shots/ios.png" alt="Glide iOS" style="position:absolute; right:150px; top:50%; transform:translateY(-50%); width:340px; border-radius:40px; box-shadow:0 40px 90px rgba(41,41,51,0.22); border:1px solid var(--paper-200);">
+  </section>
+
+  <!-- 2 · WHAT IS GLIDE -->
+  <section data-label="What is Glide" class="pad" style="display:flex; flex-direction:column; justify-content:center;">
+    <div class="eyebrow">The product</div>
+    <h2 style="font-size:76px; font-weight:700; margin-top:26px; max-width:1400px;">A study app that feels like a deep breath.</h2>
+    <p style="font-size:30px; color:var(--ink-500); margin-top:30px; max-width:1180px; line-height:1.5;">
+      Glide helps students plan their day, focus in gentle sessions, and review with flashcards — without the anxiety and pressure of most productivity tools.
+    </p>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:26px; margin-top:70px;">
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:38px; box-shadow:0 6px 18px rgba(41,41,51,0.06);">
+        <div style="font-size:42px;">📅</div>
+        <div style="font-family:var(--disp); font-weight:700; font-size:28px; color:var(--ink-900); margin-top:18px;">Plan</div>
+        <p style="font-size:21px; color:var(--ink-500); margin-top:10px; line-height:1.45;">A calm daily plan, grouped by morning and afternoon.</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:38px; box-shadow:0 6px 18px rgba(41,41,51,0.06);">
+        <div style="font-size:42px;">⏱️</div>
+        <div style="font-family:var(--disp); font-weight:700; font-size:28px; color:var(--ink-900); margin-top:18px;">Focus</div>
+        <p style="font-size:21px; color:var(--ink-500); margin-top:10px; line-height:1.45;">Quiet timed sessions with notifications paused.</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:38px; box-shadow:0 6px 18px rgba(41,41,51,0.06);">
+        <div style="font-size:42px;">🗂️</div>
+        <div style="font-family:var(--disp); font-weight:700; font-size:28px; color:var(--ink-900); margin-top:18px;">Review</div>
+        <p style="font-size:21px; color:var(--ink-500); margin-top:10px; line-height:1.45;">Flashcard decks with a spaced, gentle rhythm.</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:38px; box-shadow:0 6px 18px rgba(41,41,51,0.06);">
+        <div style="font-size:42px;">🔥</div>
+        <div style="font-family:var(--disp); font-weight:700; font-size:28px; color:var(--ink-900); margin-top:18px;">Rhythm</div>
+        <p style="font-size:21px; color:var(--ink-500); margin-top:10px; line-height:1.45;">Encouraging streaks that never shame a missed day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · VOICE -->
+  <section data-label="Voice & tone" class="pad" style="display:flex; flex-direction:column; justify-content:center;">
+    <div class="eyebrow">Voice &amp; tone</div>
+    <h2 style="font-size:76px; font-weight:700; margin-top:26px; max-width:1300px;">Like a calm study buddy — never a stern coach.</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:66px;">
+      <div style="display:flex; flex-direction:column; gap:22px;">
+        <div style="background:#fff; border:1px solid var(--paper-200); border-radius:20px; padding:30px 34px;">
+          <div class="mono" style="font-size:18px; font-weight:600; color:var(--sage-600); text-transform:uppercase; letter-spacing:0.06em;">Do — say</div>
+          <p style="font-size:27px; color:var(--ink-900); margin-top:12px;">"Yesterday slipped by — no worries. Start a fresh one today."</p>
+        </div>
+        <div style="background:#fff; border:1px solid var(--paper-200); border-radius:20px; padding:30px 34px;">
+          <div class="mono" style="font-size:18px; font-weight:600; color:var(--sage-600); text-transform:uppercase; letter-spacing:0.06em;">Do — say</div>
+          <p style="font-size:27px; color:var(--ink-900); margin-top:12px;">"Let's glide. 25 minutes, phone down."</p>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:22px;">
+        <div style="background:var(--paper-100); border:1px solid var(--paper-200); border-radius:20px; padding:30px 34px;">
+          <div class="mono" style="font-size:18px; font-weight:600; color:var(--coral-500); text-transform:uppercase; letter-spacing:0.06em;">Don't — say</div>
+          <p style="font-size:27px; color:var(--ink-400); margin-top:12px; text-decoration:line-through; text-decoration-color:var(--apricot-100);">"You broke your 7-day streak! Don't lose your progress!!"</p>
+        </div>
+        <div style="background:var(--paper-100); border:1px solid var(--paper-200); border-radius:20px; padding:30px 34px;">
+          <div class="mono" style="font-size:18px; font-weight:600; color:var(--coral-500); text-transform:uppercase; letter-spacing:0.06em;">Don't — say</div>
+          <p style="font-size:27px; color:var(--ink-400); margin-top:12px; text-decoration:line-through; text-decoration-color:var(--apricot-100);">"START YOUR PRODUCTIVITY SESSION NOW"</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:24px; color:var(--ink-500); margin-top:52px;">
+      Sentence case everywhere &nbsp;·&nbsp; second person &nbsp;·&nbsp; short &amp; warm &nbsp;·&nbsp; low&#8209;pressure, never shaming &nbsp;·&nbsp; no emoji in product UI
+    </p>
+  </section>
+
+  <!-- 4 · COLOR -->
+  <section data-label="Color" class="pad" style="display:flex; flex-direction:column; justify-content:center;">
+    <div class="eyebrow">Color</div>
+    <h2 style="font-size:76px; font-weight:700; margin-top:26px;">Warm paper, soft periwinkle.</h2>
+    <p style="font-size:28px; color:var(--ink-500); margin-top:24px; max-width:1150px; line-height:1.45;">Low saturation for calm. A single confident primary, three playful accents, all on a warm off‑white base.</p>
+    <div style="display:flex; gap:20px; margin-top:60px;">
+      <div style="flex:2; border-radius:24px; overflow:hidden; border:1px solid var(--paper-200);">
+        <div style="background:var(--glide-500); height:190px; display:flex; align-items:flex-end; padding:26px;"><span style="color:#fff; font-family:var(--mono); font-weight:600; font-size:26px;">Glide 500 · #6c7bf0</span></div>
+        <div style="display:flex;">
+          <div style="flex:1; background:var(--glide-100); height:70px;"></div>
+          <div style="flex:1; background:var(--glide-300); height:70px;"></div>
+          <div style="flex:1; background:var(--glide-600); height:70px;"></div>
+          <div style="flex:1; background:var(--glide-700); height:70px;"></div>
+        </div>
+      </div>
+      <div style="flex:1; border-radius:24px; background:var(--sage-500); display:flex; align-items:flex-end; padding:24px; border:1px solid var(--paper-200);"><span style="color:#fff; font-family:var(--mono); font-weight:600; font-size:22px;">Sage</span></div>
+      <div style="flex:1; border-radius:24px; background:var(--apricot-500); display:flex; align-items:flex-end; padding:24px; border:1px solid var(--paper-200);"><span style="color:#fff; font-family:var(--mono); font-weight:600; font-size:22px;">Apricot</span></div>
+      <div style="flex:1; border-radius:24px; background:var(--lilac-500); display:flex; align-items:flex-end; padding:24px; border:1px solid var(--paper-200);"><span style="color:#fff; font-family:var(--mono); font-weight:600; font-size:22px;">Lilac</span></div>
+    </div>
+    <div style="display:flex; gap:20px; margin-top:20px; align-items:center;">
+      <div style="flex:1; height:96px; border-radius:20px; background:var(--paper-50); border:1px solid var(--paper-300); display:flex; align-items:center; padding:0 26px; font-family:var(--mono); font-size:20px; color:var(--ink-500);">Paper 50 · app background</div>
+      <div style="flex:1; height:96px; border-radius:20px; background:var(--paper-100); border:1px solid var(--paper-300); display:flex; align-items:center; padding:0 26px; font-family:var(--mono); font-size:20px; color:var(--ink-500);">Paper 100 · surface</div>
+      <div style="flex:1; height:96px; border-radius:20px; background:var(--ink-900); display:flex; align-items:center; padding:0 26px; font-family:var(--mono); font-size:20px; color:#fff;">Ink 900 · #292933 text</div>
+    </div>
+  </section>
+
+  <!-- 5 · TYPE -->
+  <section data-label="Typography" class="pad" style="display:flex; flex-direction:column; justify-content:center;">
+    <div class="eyebrow">Typography</div>
+    <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:70px; margin-top:34px; align-items:center;">
+      <div>
+        <div style="font-family:var(--disp); font-weight:800; font-size:150px; color:var(--ink-900); line-height:0.9;">Aa</div>
+        <div style="font-family:var(--disp); font-weight:700; font-size:44px; color:var(--ink-900); margin-top:28px;">Bricolage Grotesque</div>
+        <p style="font-size:24px; color:var(--ink-500); margin-top:10px;">Display — warm, characterful. Headings &amp; big moments.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:38px;">
+        <div>
+          <div style="font-family:var(--body); font-weight:600; font-size:52px; color:var(--ink-900);">Hanken Grotesk</div>
+          <p style="font-size:23px; color:var(--ink-500); margin-top:8px;">Body &amp; UI — clean, friendly, highly legible. Generous line-height for calm reading.</p>
+        </div>
+        <div style="border-top:1px solid var(--paper-200); padding-top:34px;">
+          <div style="font-family:var(--mono); font-weight:600; font-size:52px; color:var(--ink-900); letter-spacing:-1px;">24:59 · ×7</div>
+          <p style="font-size:23px; color:var(--ink-500); margin-top:8px;">JetBrains Mono — timers, counters &amp; stats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · FOUNDATIONS -->
+  <section data-label="Foundations" class="pad" style="display:flex; flex-direction:column; justify-content:center;">
+    <div class="eyebrow">Foundations</div>
+    <h2 style="font-size:72px; font-weight:700; margin-top:26px;">Everything glides — nothing is sharp.</h2>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:26px; margin-top:64px;">
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:36px;">
+        <div style="font-family:var(--disp); font-weight:700; font-size:28px; color:var(--ink-900);">Soft rounding</div>
+        <p style="font-size:19px; color:var(--ink-500); margin:12px 0 30px;">Generous, consistent radii — a core brand signal.</p>
+        <div style="display:flex; gap:14px; align-items:center;">
+          <div style="width:78px; height:78px; background:var(--glide-100); border:1.5px solid var(--glide-300); border-radius:10px;"></div>
+          <div style="width:78px; height:78px; background:var(--glide-100); border:1.5px solid var(--glide-300); border-radius:20px;"></div>
+          <div style="width:78px; height:78px; background:var(--glide-100); border:1.5px solid var(--glide-300); border-radius:50%;"></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:36px;">
+        <div style="font-family:var(--disp); font-weight:700; font-size:28px; color:var(--ink-900);">Diffuse shadow</div>
+        <p style="font-size:19px; color:var(--ink-500); margin:12px 0 34px;">Low-contrast, warm-tinted, never harsh.</p>
+        <div style="display:flex; gap:18px;">
+          <div style="width:80px; height:56px; background:#fff; border-radius:16px; box-shadow:0 2px 6px rgba(41,41,51,0.06);"></div>
+          <div style="width:80px; height:56px; background:#fff; border-radius:16px; box-shadow:0 14px 34px rgba(41,41,51,0.10);"></div>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:36px;">
+        <div style="font-family:var(--disp); font-weight:700; font-size:28px; color:var(--ink-900);">4px spacing grid</div>
+        <p style="font-size:19px; color:var(--ink-500); margin:12px 0 30px;">Airy and unhurried, generous whitespace.</p>
+        <div style="display:flex; gap:10px; align-items:flex-end;">
+          <div style="width:22px; height:22px; background:var(--glide-300); border-radius:5px;"></div>
+          <div style="width:36px; height:36px; background:var(--glide-300); border-radius:6px;"></div>
+          <div style="width:50px; height:50px; background:var(--glide-300); border-radius:7px;"></div>
+        </div>
+      </div>
+      <div style="background-image:var(--wash-glide),var(--wash-apricot); background-color:var(--paper-100); border-radius:22px; padding:36px; position:relative; overflow:hidden;">
+        <div style="position:absolute; inset:14px; border-radius:16px; background:rgba(255,255,255,0.55); border:1px solid rgba(255,255,255,0.65); backdrop-filter:blur(18px) saturate(1.5); -webkit-backdrop-filter:blur(18px) saturate(1.5);"></div>
+        <div style="position:relative;">
+          <div style="font-family:var(--disp); font-weight:700; font-size:28px; color:var(--ink-900);">Liquid glass</div>
+          <p style="font-size:19px; color:var(--ink-700); margin-top:12px;">A restrained frosted accent — tab bars, sidebars &amp; dialogs only. Never the base surface.</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:24px; color:var(--ink-500); margin-top:52px;">Motion is gentle and glide‑y — a smooth decelerate for chrome; a soft spring reserved only for celebratory moments.</p>
+  </section>
+
+  <!-- 7 · COMPONENTS -->
+  <section data-label="Components" class="pad" style="display:flex; flex-direction:column; justify-content:center;">
+    <div class="eyebrow">Component library</div>
+    <h2 style="font-size:72px; font-weight:700; margin-top:26px;">23 primitives, four families.</h2>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:26px; margin-top:58px;">
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:40px;">
+        <div class="mono" style="font-size:19px; color:var(--glide-600); text-transform:uppercase; letter-spacing:0.08em;">Core</div>
+        <p style="font-size:26px; color:var(--ink-700); margin-top:14px; line-height:1.5;">Button · IconButton · Badge · Tag · Avatar · Card · Divider</p>
+        <div style="display:flex; gap:14px; margin-top:26px; align-items:center;">
+          <span style="background:var(--glide-500); color:#fff; padding:12px 22px; border-radius:12px; font-weight:600; font-size:20px; box-shadow:0 10px 28px rgba(108,123,240,0.28);">Start focusing</span>
+          <span style="background:#fff; color:var(--ink-900); padding:12px 22px; border-radius:12px; font-weight:600; font-size:20px; border:1px solid var(--paper-300);">Add task</span>
+          <span style="background:var(--sage-100); color:var(--sage-700); padding:9px 16px; border-radius:999px; font-weight:600; font-size:18px;">On track</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:40px;">
+        <div class="mono" style="font-size:19px; color:var(--sage-600); text-transform:uppercase; letter-spacing:0.08em;">Forms</div>
+        <p style="font-size:26px; color:var(--ink-700); margin-top:14px; line-height:1.5;">Input · Textarea · Checkbox · Radio · Switch · Segmented · Select</p>
+        <div style="display:flex; gap:14px; margin-top:26px; align-items:center;">
+          <span style="display:inline-flex; gap:3px; padding:3px; background:var(--paper-100); border-radius:999px;">
+            <span style="background:#fff; color:var(--ink-900); padding:8px 16px; border-radius:999px; font-weight:600; font-size:18px; box-shadow:0 2px 6px rgba(41,41,51,0.06);">Week</span>
+            <span style="color:var(--ink-500); padding:8px 16px; font-weight:600; font-size:18px;">Month</span>
+          </span>
+          <span style="width:44px; height:26px; border-radius:999px; background:var(--glide-500); position:relative; display:inline-block;"><span style="position:absolute; top:3px; right:3px; width:20px; height:20px; border-radius:50%; background:#fff;"></span></span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid var(--paper-200); border-radius:22px; padding:40px;">
+        <div class="mono" style="font-size:19px; color:var(--apricot-600); text-transform:uppercase; letter-spacing:0.08em;">Feedback</div>
+        <p style="font-size:26px; color:var(--ink-700); margin-top:14px; line-height:1.5;">ProgressBar · Toast · Tooltip · Dialog</p>
+        <div style="margin-top:26px; height:10px; background:var(--paper-100); border-radius:999px; overflow:hidden;"><div style="width:70%; height:100%; background:var(--sage-500); border-radius:999px;"></div></div>
+      </div>
+      <div style="background:var(--glide-50); border:1px solid var(--glide-100); border-radius:22px; padding:40px;">
+        <div class="mono" style="font-size:19px; color:var(--lilac-600); text-transform:uppercase; letter-spacing:0.08em;">Study · signature</div>
+        <p style="font-size:26px; color:var(--ink-700); margin-top:14px; line-height:1.5;">TimerRing · TaskItem · Flashcard · StreakBadge · StatTile</p>
+        <div style="display:flex; gap:14px; margin-top:26px; align-items:center;">
+          <span class="chip" style="background:var(--apricot-50); border:1px solid var(--apricot-100); color:var(--apricot-700); padding:10px 16px; font-family:var(--mono); font-weight:600; font-size:20px;">🔥 7 days</span>
+          <span class="mono" style="font-size:26px; color:var(--ink-900); font-weight:600;">14:31</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · ICONOGRAPHY -->
+  <section data-label="Iconography" class="pad" style="display:flex; flex-direction:column; justify-content:center;">
+    <div class="eyebrow">Iconography</div>
+    <h2 style="font-size:72px; font-weight:700; margin-top:26px; max-width:1300px;">Lucide — rounded, even, gently drawn.</h2>
+    <p style="font-size:28px; color:var(--ink-500); margin-top:24px; max-width:1150px; line-height:1.45;">Line icons only · 2px stroke · rounded caps &amp; joins. Their soft, even weight matches Glide's calm‑rounded aesthetic. No emoji in product chrome; no mixed sets.</p>
+    <div id="iconrow" style="display:flex; gap:30px; margin-top:66px; flex-wrap:wrap;"></div>
+  </section>
+
+  <!-- 9 · iOS -->
+  <section data-label="iOS app" style="padding:0; display:flex;">
+    <div style="width:58%; padding:110px 0 110px 130px; display:flex; flex-direction:column; justify-content:center;">
+      <div class="eyebrow">Product · iOS</div>
+      <h2 style="font-size:80px; font-weight:700; margin-top:26px; max-width:760px;">Calm in your pocket.</h2>
+      <p style="font-size:29px; color:var(--ink-500); margin-top:28px; max-width:720px; line-height:1.5;">Four tabs — Today, Focus, Decks, You. A floating translucent tab bar, live focus timer, and a gentle daily plan.</p>
+      <div style="display:flex; gap:16px; margin-top:46px; flex-wrap:wrap;">
+        <span class="chip" style="background:#fff; border:1px solid var(--paper-200); color:var(--ink-700); padding:14px 24px; font-size:23px;">Today</span>
+        <span class="chip" style="background:#fff; border:1px solid var(--paper-200); color:var(--ink-700); padding:14px 24px; font-size:23px;">Focus timer</span>
+        <span class="chip" style="background:#fff; border:1px solid var(--paper-200); color:var(--ink-700); padding:14px 24px; font-size:23px;">Flashcard review</span>
+        <span class="chip" style="background:#fff; border:1px solid var(--paper-200); color:var(--ink-700); padding:14px 24px; font-size:23px;">Streaks</span>
+      </div>
+    </div>
+    <div style="width:42%; background:linear-gradient(160deg,var(--glide-50),var(--paper-100)); border-left:1px solid var(--paper-200); display:flex; align-items:center; justify-content:center;">
+      <img src="../assets/shots/ios.png" alt="Glide iOS app" style="width:400px; border-radius:44px; box-shadow:0 40px 90px rgba(41,41,51,0.24); border:1px solid var(--paper-200);">
+    </div>
+  </section>
+
+  <!-- 10 · macOS -->
+  <section data-label="macOS app" style="padding:0; display:flex; flex-direction:column; justify-content:center; align-items:center; background:linear-gradient(160deg,#efece5,#e7e1d5);">
+    <div style="position:absolute; top:88px; left:130px;">
+      <div class="eyebrow">Product · macOS</div>
+      <h2 style="font-size:64px; font-weight:700; margin-top:20px;">A focused workspace.</h2>
+    </div>
+    <img src="../assets/shots/mac.png" alt="Glide macOS app" style="position:absolute; top:238px; width:1230px; border-radius:18px; box-shadow:0 50px 110px rgba(41,41,51,0.32); border:1px solid rgba(255,255,255,0.6);">
+    <p style="position:absolute; bottom:44px; font-size:25px; color:var(--ink-500);">Sidebar · planner grouped by time of day · always‑visible focus rail with live timer &amp; streak</p>
+  </section>
+
+  <!-- 11 · CLOSING -->
+  <section data-label="Close" style="padding:0; background:var(--ink-900);">
+    <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:0 130px;">
+      <div style="display:flex; align-items:center; gap:24px; margin-bottom:44px;">
+        <img src="../assets/logo-mark.svg" width="80" height="80" alt="Glide">
+        <span style="font-family:var(--disp); font-weight:700; font-size:48px; letter-spacing:-1.5px; color:#fff;">Glide</span>
+      </div>
+      <h2 style="font-size:96px; font-weight:800; color:#fff; max-width:1250px;">Let's build it, gently.</h2>
+      <p style="font-size:30px; color:var(--glide-300); margin-top:32px; max-width:1000px; line-height:1.5;">
+        Full guidelines, tokens, components and UI kits live in the Glide design system. Two choices define the feel — the periwinkle primary and Bricolage display. Let's lock those first.
+      </p>
+      <div style="display:flex; gap:16px; margin-top:56px;">
+        <span class="chip" style="background:var(--glide-500); color:#fff; padding:16px 30px; font-size:24px; font-weight:600;">Open the system</span>
+        <span class="chip" style="background:rgba(255,255,255,0.1); color:#fff; padding:16px 30px; font-size:24px; font-weight:600;">Review the vibe</span>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck-stage.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  const icons=['book-open','timer','play','pause','flame','calendar','layers','sparkles','check','circle','moon','settings','plus','chevron-right','sun','user'];
+  const row=document.getElementById('iconrow');
+  if(row){ icons.forEach(n=>{ const i=document.createElement('i'); i.setAttribute('data-lucide',n); i.style.width='58px'; i.style.height='58px'; i.style.color='#45454f'; i.style.strokeWidth='2'; row.appendChild(i);}); }
+  function draw(){ if(window.lucide){ lucide.createIcons(); } else { setTimeout(draw,60); } }
+  draw();
+</script>
+</body>
+</html>

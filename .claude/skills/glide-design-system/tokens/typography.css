@@ -1,0 +1,43 @@
+/* ============================================================
+   Glide — Typography tokens
+   Display: Bricolage Grotesque (warm, characterful)
+   Body/UI: Hanken Grotesk (clean, friendly, legible)
+   Mono:    JetBrains Mono (timers, stats, counters)
+   ============================================================ */
+
+:root {
+  --font-display: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
+  --font-body:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Type scale — gentle, generous line-heights for calm reading */
+  --text-display-lg: 3.25rem;  /* 52px — hero moments */
+  --text-display:    2.5rem;   /* 40px — screen titles */
+  --text-h1:         2rem;     /* 32px */
+  --text-h2:         1.5rem;   /* 24px */
+  --text-h3:         1.25rem;  /* 20px */
+  --text-lg:         1.125rem; /* 18px */
+  --text-base:       1rem;     /* 16px */
+  --text-sm:         0.875rem; /* 14px */
+  --text-xs:         0.75rem;  /* 12px */
+
+  /* Weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extra:    800;
+
+  /* Line heights */
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-snug:   -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-caps:   0.08em;  /* eyebrows / labels */
+}

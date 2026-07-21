@@ -1,0 +1,108 @@
+/* ============================================================
+   Glide — Dark mode palette (purple-forward)
+   A calm night theme: deep plum-ink surfaces, a luminous purple
+   primary, and softened accents that stay gentle after dark.
+
+   Activate by putting data-theme="dark" (or class="dark") on
+   <html>, <body>, or any container. It only re-maps the SEMANTIC
+   aliases, so every component adapts automatically.
+   ============================================================ */
+
+:root {
+  /* ---- Purple ramp (dark-tuned, brighter than lilac for contrast) ---- */
+  --purple-50:  #f3efff;
+  --purple-100: #e5dcff;
+  --purple-200: #cbb8fb;
+  --purple-300: #b299f6;
+  --purple-400: #9a7bef;
+  --purple-500: #8b6ef0;  /* dark-mode primary */
+  --purple-600: #7c5ce8;
+  --purple-700: #6a49d6;
+
+  /* ---- Plum-ink neutrals for night surfaces ---- */
+  --plum-950: #14121c;  /* app background — deep aubergine-ink */
+  --plum-900: #1b1826;  /* raised surface / cards */
+  --plum-850: #221e30;  /* sunken wells / hover */
+  --plum-800: #2b2640;  /* hairline fills */
+  --plum-700: #3a3352;  /* borders */
+  --plum-600: #4a4266;  /* strong borders */
+
+  --mist-050: #f4f1ff;  /* strong text (soft lilac-white) */
+  --mist-300: #cdc6e6;  /* body text */
+  --mist-400: #a49cc2;  /* muted text */
+  --mist-500: #7d7699;  /* faint text */
+}
+
+[data-theme="dark"], .dark {
+  /* Surfaces */
+  --surface-app:     var(--plum-950);
+  --surface-card:    var(--plum-900);
+  --surface-sunken:  var(--plum-850);
+  --surface-raised:  var(--plum-850);
+  --surface-tint:    #241d38;
+  --surface-overlay: rgba(10, 8, 16, 0.62);
+
+  /* Text */
+  --text-strong:     var(--mist-050);
+  --text-body:       var(--mist-300);
+  --text-muted:      var(--mist-400);
+  --text-faint:      var(--mist-500);
+  --text-on-primary: #ffffff;
+  --text-link:       var(--purple-300);
+
+  /* Borders */
+  --border-soft:     var(--plum-800);
+  --border-default:  var(--plum-700);
+  --border-strong:   var(--plum-600);
+  --border-focus:    var(--purple-400);
+
+  /* Brand / interactive — PURPLE */
+  --primary:         var(--purple-500);
+  --primary-hover:   var(--purple-400);
+  --primary-press:   var(--purple-600);
+  --primary-tint:    #2c2348;
+
+  /* Semantic status — softened tints sit on dark plum */
+  --success:         #6cc0a1;
+  --success-tint:    #1c3630;
+  --warning:         #e6b455;
+  --warning-tint:    #3a2f1a;
+  --danger:          #ec8175;
+  --danger-tint:     #3a2028;
+  --info:            var(--purple-400);
+  --info-tint:       #2c2348;
+
+  /* Accent tints re-pointed for dark surfaces (used by tint props) */
+  --glide-50:    #241d38;
+  --glide-100:   #2c2348;
+  --sage-50:     #17271f;
+  --sage-100:    #1c3630;
+  --apricot-50:  #2e211a;
+  --apricot-100: #3a2a1e;
+  --lilac-50:    #241d38;
+  --lilac-100:   #2c2348;
+
+  /* Shadows: deeper & darker after dark */
+  --shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-sm:  0 2px 8px rgba(0, 0, 0, 0.40);
+  --shadow-md:  0 8px 22px rgba(0, 0, 0, 0.48);
+  --shadow-lg:  0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-xl:  0 28px 66px rgba(0, 0, 0, 0.62);
+  --shadow-glide: 0 12px 32px rgba(139, 110, 240, 0.42);
+
+  /* Focus ring — purple halo */
+  --ring: 0 0 0 3px rgba(139, 110, 240, 0.40);
+
+  /* Liquid glass — dark-tuned */
+  --glass-bg:        rgba(27, 24, 38, 0.55);
+  --glass-bg-strong: rgba(27, 24, 38, 0.74);
+  --glass-border:    rgba(255, 255, 255, 0.10);
+  --glass-highlight: rgba(255, 255, 255, 0.16);
+  --glass-shadow:    0 8px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  --glass-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --wash-glide:   radial-gradient(circle at 30% 20%, rgba(139,110,240,0.22), transparent 60%); /* @kind other */
+  --wash-sage:    radial-gradient(circle at 70% 30%, rgba(108,192,161,0.16), transparent 60%);  /* @kind other */
+  --wash-apricot: radial-gradient(circle at 50% 80%, rgba(238,154,107,0.14), transparent 60%);  /* @kind other */
+
+  color-scheme: dark;
+}
