@@ -82,8 +82,16 @@ still running the standard pressure-and-guilt loop.
 
 Glide already has a complete, binding design system at
 `.claude/skills/glide-design-system/` (invocable as the `glide-design-system`
-skill). It is the visual authority for this project and future web work
-reconciles against it rather than inventing a parallel one.
+skill). It is the **token source and brand authority**: the palette, the type
+families, the logo and the voice all come from there and are not reinvented.
+
+It is not, however, the authority on how this website looks. The design system
+was authored for the iOS and macOS apps, where calm restraint is the point. The
+web surface has a different job and deploys the same tokens differently. **The
+web's visual world is recorded in `DESIGN.md` at the project root**, and that
+file governs this repo's rendering. Where the two differ on expression, the app
+system wins for the app and `DESIGN.md` wins for the web; where they differ on
+brand, the design system always wins.
 
 - **Name:** Glide. Mark is an original paper-plane logo with a soft motion
   trail; wordmark sets "Glide" in Bricolage Grotesque.
@@ -104,17 +112,26 @@ reconciles against it rather than inventing a parallel one.
   documented in that skill's `readme.md`. Type is Bricolage Grotesque (display),
   Hanken Grotesk (body), JetBrains Mono (timers/stats); icons are Lucide, line
   only.
+- **Motion character is binding across surfaces:** smooth decelerate for chrome,
+  with spring or bounce reserved for genuinely celebratory moments (a streak
+  earned, a session completed). This rule holds on the web too.
+- **Fonts are self-hosted on the web.** `src/assets/fonts/` carries latin-subset
+  variable `.woff2` files for all three families, so the site makes no external
+  font requests. No licensed brand fonts exist; these are the same open faces
+  the design system names.
 - The brand is **greenfield and retunable** — it was authored from the product
   brief, not from an existing corporate identity. It is binding until the user
-  changes it, but it is not sacred, and no licensed brand fonts exist yet
-  (fonts currently load from the Google Fonts CDN).
+  changes it, but it is not sacred. The logo is the one part explicitly pinned:
+  mark and wordmark ship unaltered.
 
 ## Evidence on Hand
 
 **Exists and usable as real product imagery:**
 
 - App screenshots at `.claude/skills/glide-design-system/assets/shots/` —
-  `ios.png`, `ios-today.png`, `ios-full.png`, `mac.png`, `mac-full.png`.
+  `ios.png`, `ios-today.png`, `ios-full.png`, `mac.png`, `mac-full.png`. The two
+  the site actually ships are vendored to `src/assets/shots/` so the page does
+  not depend on tooling paths at runtime.
 - Logo assets at `.claude/skills/glide-design-system/assets/`.
 - Full brand deck at `.claude/reference/Glide Brand Deck.html`.
 - Interactive iOS and macOS UI-kit screen recreations in the design-system

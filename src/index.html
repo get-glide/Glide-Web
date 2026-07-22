@@ -60,7 +60,8 @@
     --lilac-100:#ede4f8; --lilac-300:#cdb6ec; --lilac-500:#a888dd;
 
     /* one radius system: pills for interactive, 28px slabs, full for stickers */
-    --r-slab:28px; --r-card:20px; --r-pill:999px;
+    --r-inline:8px; --r-card:20px; --r-slab:28px; --r-pill:999px;
+    --r-mark:25%; /* the logo tile: rx 30 of 120, size-independent */
     --ease:cubic-bezier(.2,.9,.3,1);
     /* ease-out-quint. Snappy, no overshoot: the design system reserves spring
        for celebratory moments, and hover/press chrome is not one. */
@@ -123,8 +124,8 @@
     padding:20px clamp(20px,4vw,56px);
     padding-top:max(20px,env(safe-area-inset-top));
   }
-  .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:inherit;min-height:44px;border-radius:14px}
-  .brand svg{display:block;width:40px;height:40px;border-radius:11px}
+  .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:inherit;min-height:44px;border-radius:var(--r-card)}
+  .brand svg{display:block;width:40px;height:40px;border-radius:var(--r-mark)}
   .brand span{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.035em}
   .nav-links{display:flex;align-items:center;gap:4px;order:3;flex:1 1 100%}
   .nav-links a{
@@ -173,7 +174,7 @@
     display:inline-flex;align-items:center;gap:9px;margin:0 0 24px;
     padding:9px 17px;border-radius:var(--r-pill);
     background:var(--apricot-300);color:#5c3316;
-    font-size:14px;font-weight:700;
+    font-size:15px;font-weight:700;
     transform:rotate(-1.6deg);
     box-shadow:0 3px 0 var(--apricot-500);
   }
@@ -191,7 +192,7 @@
   h1 .mark::before{
     content:"";position:absolute;z-index:-1;
     left:-.04em;right:-.04em;top:.16em;bottom:.1em;
-    background:var(--sage-300);border-radius:8px;
+    background:var(--sage-300);border-radius:var(--r-inline);
     transform:rotate(-1.4deg);
   }
 
@@ -200,7 +201,7 @@
     font-size:clamp(16.5px,1.2vw,19px);line-height:1.6;color:var(--ink-700);
   }
   .lede b{color:var(--ink-900);font-weight:700;background:var(--lilac-100);
-    border-radius:6px;padding:1px 5px}
+    border-radius:var(--r-inline);padding:1px 5px}
 
   /* capture */
   form{margin:30px 0 0;display:flex;gap:10px;max-width:480px;flex-wrap:wrap}
@@ -277,7 +278,7 @@
     transform:rotate(9deg);
     filter:drop-shadow(6px 7px 0 var(--ink-900));
   }
-  .mark-sticker svg{display:block;width:100%;height:100%;border-radius:19px}
+  .mark-sticker svg{display:block;width:100%;height:100%;border-radius:var(--r-mark)}
   /* the plane's trail, drawn once */
   .trail{position:absolute;top:-2%;right:16%;z-index:2;width:230px;height:150px;pointer-events:none}
   .trail path{
@@ -308,8 +309,8 @@
     .window picture{display:block;line-height:0}
     .sticker.timer{left:-2%;padding:11px 15px}
     .sticker.timer .t{font-size:21px}
-    .sticker.streak{left:-2%;bottom:2%;font-size:13.5px;padding:9px 14px}
-    .sticker.decks{right:0;bottom:-5%;font-size:13.5px;padding:9px 14px}
+    .sticker.streak{left:-2%;bottom:2%;padding:9px 14px}
+    .sticker.decks{right:0;bottom:-5%;padding:9px 14px}
     .mark-sticker{width:58px;height:58px;top:-5%}
     .trail{display:none}
   }
