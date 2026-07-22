@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glide - Start before you're ready</title>
+<meta name="description" content="Glide is a study app for iPhone and Mac. It lines up what's actually due, then sits with you for twenty-five quiet minutes. Not released yet. Join the waitlist.">
+<meta name="theme-color" content="#fbf9f4">
+<meta property="og:title" content="Glide - Start before you're ready">
+<meta property="og:description" content="A study app for iPhone and Mac. Plan the day, focus for twenty-five minutes, review your decks. Miss a week and it just says welcome back.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='30' fill='%236c7bf0'/%3E%3Cpath d='M30 62.5 L88 33 C90.5 31.7 93 34.3 91.8 36.9 L69.5 86 C68.4 88.4 64.9 88.1 64.2 85.5 L59 66.5 L40.5 60.8 C37.9 60 38 56.3 40.6 55.7 Z' fill='%23fff'/%3E%3Cpath d='M59 66.5 L91.8 36.9 L69.9 74.2 Z' fill='%23cdd5fb'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<!--
+  DIRECTION CONTRACT - "Sticker desk"
+  THESIS: The Glide palette has four accent families and every previous build spent one.
+    This one spends all four as flat cut-paper colour fields on warm stock. Refuses both
+    the pale-minimal calm-app hero and the dark saturated one it replaces.
+  OWN-WORLD: Paper-50 stock with a faint dot grid. Flat, hard-edged colour shapes in
+    periwinkle, sage, apricot and lilac bleeding off every edge. No gradients anywhere.
+    Chunky Bricolage Grotesque at heavy weight, words colour-blocked, one highlighter
+    swipe. Hard offset shadows, no blur. Everything generously rounded. Product elements
+    read as stickers pinned to the page.
+  STORY: A student recognises their own desk, sees the app doing the four things it does,
+    and leaves an email.
+  FIRST VIEWPORT: Nav on a paper strip. Headline and capture hold the left; the Mac window
+    sits tilted at right with the timer, streak and subject stickers pinned around it.
+  FORM: Cut-paper sticker composition, mixing the warm reference with the saturated one.
+-->
+<style>
+  /* Self-hosted, latin subset. Variable files: one request per family. */
+  @font-face{
+    font-family:'Bricolage Grotesque';
+    src:url(assets/fonts/bricolage-grotesque-var.woff2) format('woff2');
+    font-weight:400 800;font-stretch:100%;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Hanken Grotesk';
+    src:url(assets/fonts/hanken-grotesk-var.woff2) format('woff2');
+    font-weight:400 700;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'JetBrains Mono';
+    src:url(assets/fonts/jetbrains-mono-500.woff2) format('woff2');
+    font-weight:500;font-style:normal;font-display:swap;
+  }
+
+  :root{
+    /* Glide design system tokens */
+    --paper-0:#ffffff; --paper-50:#fbf9f4; --paper-100:#f5f1e9;
+    --paper-200:#ece6da; --paper-300:#ded6c6;
+    --ink-900:#292933; --ink-700:#45454f; --ink-500:#6c6c78;
+
+    --glide-100:#e6eafd; --glide-200:#cdd5fb; --glide-300:#aab6f7;
+    --glide-500:#6c7bf0; --glide-600:#5462df; --glide-700:#4450c2;
+    --sage-100:#dcefe6; --sage-300:#a5d6c1; --sage-500:#5fae92; --sage-700:#3c7d66;
+    --apricot-100:#fbe6d8; --apricot-300:#f6c3a1; --apricot-500:#ee9a6b; --apricot-700:#bd6537;
+    --coral-700:#b0483b;
+    --lilac-100:#ede4f8; --lilac-300:#cdb6ec; --lilac-500:#a888dd;
+
+    /* one radius system: pills for interactive, 28px slabs, full for stickers */
+    --r-inline:8px; --r-card:20px; --r-slab:28px; --r-pill:999px;
+    --r-mark:25%; /* the logo tile: rx 30 of 120, size-independent */
+    --ease:cubic-bezier(.2,.9,.3,1);
+    /* ease-out-quint. Snappy, no overshoot: the design system reserves spring
+       for celebratory moments, and hover/press chrome is not one. */
+    --pop:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--paper-50);color:var(--ink-900);
+    font-family:'Hanken Grotesk',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+
+  .skip{
+    position:absolute;left:16px;top:-100px;z-index:40;
+    display:inline-flex;align-items:center;min-height:44px;padding:0 20px;
+    background:var(--ink-900);color:var(--paper-50);
+    border-radius:var(--r-pill);font-weight:700;font-size:15px;text-decoration:none;
+    transition:top .2s var(--ease);
+  }
+  .skip:focus{top:16px;outline:3px solid var(--glide-500);outline-offset:3px}
+
+  /* ---------- the page / cut paper ---------- */
+  .page{
+    position:relative;min-height:100vh;min-height:100dvh;
+    display:flex;flex-direction:column;isolation:isolate;overflow:hidden;
+    padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);
+  }
+  /* notebook dot grid */
+  .page::before{
+    content:"";position:absolute;inset:0;z-index:-3;
+    background-image:radial-gradient(circle at 1px 1px, var(--paper-300) 1px, transparent 1.6px);
+    background-size:26px 26px;opacity:.55;
+  }
+  /* flat cut-paper shapes. No gradients: hard fills only. */
+  .cut{position:absolute;z-index:-2;pointer-events:none}
+  .cut-lilac{
+    top:-190px;right:-120px;width:640px;height:640px;border-radius:50%;
+    background:var(--lilac-100);
+  }
+  .cut-sage{
+    top:88px;right:340px;width:250px;height:250px;border-radius:50%;
+    background:var(--sage-100);
+  }
+  .cut-apricot{
+    bottom:-230px;left:-170px;width:600px;height:600px;border-radius:50%;
+    background:var(--apricot-100);
+  }
+  .cut-glide{
+    bottom:-130px;right:-140px;width:420px;height:300px;border-radius:var(--r-slab);
+    background:var(--glide-100);transform:rotate(-8deg);
+  }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:relative;z-index:5;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding:20px clamp(20px,4vw,56px);
+    padding-top:max(20px,env(safe-area-inset-top));
+  }
+  .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:inherit;min-height:44px;border-radius:var(--r-card)}
+  .brand svg{display:block;width:40px;height:40px;border-radius:var(--r-mark)}
+  .brand span{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.035em}
+  .nav-links{display:flex;align-items:center;gap:4px;order:3;flex:1 1 100%}
+  .nav-links a{
+    display:inline-flex;align-items:center;min-height:44px;padding:0 16px;
+    color:var(--ink-700);text-decoration:none;font-size:15.5px;font-weight:600;
+    border-radius:var(--r-pill);
+    transition:background .18s var(--ease),color .18s var(--ease),transform .18s var(--pop);
+  }
+  .nav-links a:hover{background:var(--paper-200);color:var(--ink-900);transform:translateY(-2px)}
+  .nav-links a:focus-visible,.brand:focus-visible,.nav-cta:focus-visible,
+  form button:focus-visible,form input:focus-visible{outline:3px solid var(--glide-600);outline-offset:3px}
+  .nav-cta{
+    display:inline-flex;align-items:center;min-height:46px;
+    background:var(--ink-900);color:var(--paper-50);border:none;border-radius:var(--r-pill);
+    font-family:inherit;font-size:15.5px;font-weight:700;padding:0 24px;cursor:pointer;
+    box-shadow:0 4px 0 var(--glide-600);
+    transition:transform .16s var(--pop),box-shadow .16s var(--ease);
+  }
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--glide-600)}
+  .nav-cta:active{transform:translateY(2px);box-shadow:0 2px 0 var(--glide-600)}
+  @media (min-width:940px){
+    .nav-links{order:0;flex:0 0 auto;margin-left:auto;margin-right:18px}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;z-index:4;flex:1;width:100%;max-width:1480px;margin:0 auto;
+    padding:clamp(6px,1.4vh,22px) clamp(20px,4vw,56px) clamp(28px,4vh,52px);
+    padding-bottom:max(clamp(28px,4vh,52px),env(safe-area-inset-bottom));
+    display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+    gap:clamp(24px,3vw,48px);align-items:center;
+  }
+
+  /* staggered entry: one authored sequence, top to bottom */
+  @media (prefers-reduced-motion:no-preference){
+    .rise{opacity:0;transform:translateY(22px);animation:rise .7s var(--ease) forwards}
+    .rise:nth-child(1){animation-delay:.05s}
+    .rise:nth-child(2){animation-delay:.14s}
+    .rise:nth-child(3){animation-delay:.23s}
+    .rise:nth-child(4){animation-delay:.32s}
+    .rise:nth-child(5){animation-delay:.41s}
+    @keyframes rise{to{opacity:1;transform:none}}
+  }
+
+  .tag{
+    display:inline-flex;align-items:center;gap:9px;margin:0 0 24px;
+    padding:9px 17px;border-radius:var(--r-pill);
+    background:var(--apricot-300);color:#5c3316;
+    font-size:15px;font-weight:700;
+    transform:rotate(-1.6deg);
+    box-shadow:0 3px 0 var(--apricot-500);
+  }
+  .tag i{width:8px;height:8px;border-radius:50%;background:var(--apricot-700);flex:none}
+
+  h1{
+    margin:0;font-family:'Bricolage Grotesque',sans-serif;
+    font-size:clamp(46px,6.6vw,98px);line-height:.93;
+    font-weight:800;letter-spacing:-.045em;color:var(--ink-900);
+    max-width:12ch;
+  }
+  h1 .b{color:var(--glide-600)}
+  /* highlighter swipe: a flat marker stroke behind the last phrase */
+  h1 .mark{position:relative;display:inline-block;z-index:0;padding:0 .06em}
+  h1 .mark::before{
+    content:"";position:absolute;z-index:-1;
+    left:-.04em;right:-.04em;top:.16em;bottom:.1em;
+    background:var(--sage-300);border-radius:var(--r-inline);
+    transform:rotate(-1.4deg);
+  }
+
+  .lede{
+    margin:24px 0 0;max-width:42ch;
+    font-size:clamp(16.5px,1.2vw,19px);line-height:1.6;color:var(--ink-700);
+  }
+  .lede b{color:var(--ink-900);font-weight:700;background:var(--lilac-100);
+    border-radius:var(--r-inline);padding:1px 5px}
+
+  /* capture */
+  form{margin:30px 0 0;display:flex;gap:10px;max-width:480px;flex-wrap:wrap}
+  form label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  form input{
+    flex:1 1 232px;min-width:0;min-height:56px;
+    background:var(--paper-0);border:2.5px solid var(--ink-900);
+    border-radius:var(--r-pill);padding:15px 22px;
+    font-family:inherit;font-size:16px;font-weight:500;color:var(--ink-900);
+    box-shadow:0 4px 0 var(--paper-300);
+    transition:box-shadow .18s var(--ease),transform .18s var(--pop);
+  }
+  form input::placeholder{color:var(--ink-500)}
+  form input:hover{transform:translateY(-1px);box-shadow:0 5px 0 var(--paper-300)}
+  form input:focus{outline:none;box-shadow:0 4px 0 var(--glide-600)}
+  form button{
+    flex:0 0 auto;min-height:56px;
+    background:var(--glide-600);color:var(--paper-0);
+    border:2.5px solid var(--ink-900);border-radius:var(--r-pill);padding:15px 30px;
+    font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;
+    letter-spacing:-.015em;cursor:pointer;
+    box-shadow:0 4px 0 var(--ink-900);
+    transition:transform .16s var(--pop),box-shadow .16s var(--ease),background .16s var(--ease);
+  }
+  form button:hover{background:var(--glide-500);transform:translateY(-2px);box-shadow:0 6px 0 var(--ink-900)}
+  form button:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink-900)}
+  form input:disabled,form button:disabled{opacity:.55;cursor:default}
+  form button:disabled:hover{background:var(--glide-600);transform:none;box-shadow:0 4px 0 var(--ink-900)}
+
+  .msg{margin:13px 0 0;font-size:15px;font-weight:600;line-height:1.5;max-width:42ch}
+  .msg:empty{display:none}
+  .msg[data-state="error"]{color:var(--coral-700)}
+  .msg[data-state="ok"]{color:var(--sage-700)}
+  form input[aria-invalid="true"]{border-color:var(--apricot-700);box-shadow:0 4px 0 var(--apricot-500)}
+  .fineprint{margin:14px 0 0;font-size:14.5px;line-height:1.5;color:var(--ink-500);max-width:40ch}
+
+  /* ---------- showcase: the app, pinned like stickers ---------- */
+  .showcase{position:relative;display:flex;align-items:center;justify-content:center;min-height:460px}
+  .window{
+    position:relative;width:min(100%,600px);
+    border:3px solid var(--ink-900);border-radius:var(--r-slab);
+    background:var(--paper-0);overflow:hidden;
+    transform:rotate(2.4deg);
+    box-shadow:14px 16px 0 var(--glide-300);
+  }
+  .window img{display:block;width:100%;height:auto}
+
+  .sticker{
+    position:absolute;z-index:3;
+    border:3px solid var(--ink-900);border-radius:var(--r-pill);
+    font-weight:700;display:inline-flex;align-items:center;gap:9px;
+    padding:11px 18px;font-size:15px;background:var(--paper-0);
+  }
+  .sticker.timer{
+    top:2%;left:-4%;flex-direction:column;gap:2px;border-radius:var(--r-card);
+    padding:14px 20px;background:var(--sage-300);color:#123f31;
+    transform:rotate(-6deg);box-shadow:6px 7px 0 var(--ink-900);
+  }
+  .sticker.timer .t{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:26px;font-weight:500;
+    letter-spacing:-.02em;line-height:1;
+  }
+  .sticker.timer .l{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .sticker.streak{
+    bottom:6%;left:-6%;background:var(--apricot-300);color:#5c3316;
+    transform:rotate(4deg);box-shadow:6px 7px 0 var(--ink-900);
+  }
+  .sticker.decks{
+    bottom:12%;right:-5%;background:var(--lilac-300);color:#3d2358;
+    transform:rotate(-3deg);box-shadow:6px 7px 0 var(--ink-900);
+  }
+  .mark-sticker{
+    position:absolute;top:-7%;right:4%;z-index:3;width:76px;height:76px;
+    transform:rotate(9deg);
+    filter:drop-shadow(6px 7px 0 var(--ink-900));
+  }
+  .mark-sticker svg{display:block;width:100%;height:100%;border-radius:var(--r-mark)}
+  /* the plane's trail, drawn once */
+  .trail{position:absolute;top:-2%;right:16%;z-index:2;width:230px;height:150px;pointer-events:none}
+  .trail path{
+    fill:none;stroke:var(--glide-500);stroke-width:4;stroke-linecap:round;
+    stroke-dasharray:2 16;
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .trail path{stroke-dashoffset:340;animation:fly 1.5s var(--ease) .5s forwards}
+    @keyframes fly{to{stroke-dashoffset:0}}
+    /* two floaters only, bounded */
+    .sticker.timer{animation:bob 5.2s ease-in-out 1.6s infinite}
+    .mark-sticker{animation:bob 6.4s ease-in-out 2s infinite reverse}
+    @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -9px}}
+  }
+
+  /* ---------- adaptation ---------- */
+  @media (max-width:1080px){
+    .hero{grid-template-columns:1fr;gap:44px;align-items:start;padding-top:4px}
+    h1{max-width:none}
+    .showcase{min-height:0;padding:26px 0 34px}
+    .window{width:min(100%,520px);transform:rotate(1.6deg)}
+    .cut-sage,.cut-glide{display:none}
+    .cut-lilac{width:400px;height:400px;top:-150px;right:-140px}
+    .cut-apricot{width:420px;height:420px;bottom:-190px;left:-150px}
+  }
+  @media (max-width:620px){
+    .window{width:min(78%,250px);transform:rotate(-1.8deg)}
+    .window picture{display:block;line-height:0}
+    .sticker.timer{left:-2%;padding:11px 15px}
+    .sticker.timer .t{font-size:21px}
+    .sticker.streak{left:-2%;bottom:2%;padding:9px 14px}
+    .sticker.decks{right:0;bottom:-5%;padding:9px 14px}
+    .mark-sticker{width:58px;height:58px;top:-5%}
+    .trail{display:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="page">
+  <div class="cut cut-lilac" aria-hidden="true"></div>
+  <div class="cut cut-sage" aria-hidden="true"></div>
+  <div class="cut cut-apricot" aria-hidden="true"></div>
+  <div class="cut cut-glide" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="#">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Glide mark">
+        <rect width="120" height="120" rx="30" fill="#6c7bf0"></rect>
+        <circle cx="33" cy="90" r="13" fill="none" stroke="#ffffff" stroke-width="7.5" stroke-linecap="round" stroke-dasharray="60 22" opacity="0.92"></circle>
+        <rect x="33" y="86.25" width="15" height="7.5" rx="3.75" fill="#ffffff" opacity="0.92"></rect>
+        <path d="M30 62.5 L88 33 C90.5 31.7 93 34.3 91.8 36.9 L69.5 86 C68.4 88.4 64.9 88.1 64.2 85.5 L59 66.5 L40.5 60.8 C37.9 60 38 56.3 40.6 55.7 Z" fill="#ffffff"></path>
+        <path d="M59 66.5 L91.8 36.9 L69.9 74.2 Z" fill="#cdd5fb"></path>
+      </svg>
+      <span>Glide</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#">How it works</a>
+      <a href="#">Focus</a>
+      <a href="#">Decks</a>
+    </nav>
+    <button class="nav-cta">Join the waitlist</button>
+  </header>
+
+  <main class="hero" id="main" tabindex="-1">
+    <section>
+      <p class="tag rise"><i aria-hidden="true"></i> In the making, for iPhone and Mac</p>
+
+      <h1 class="rise">Start <span class="b">before</span> <span class="mark">you're ready.</span></h1>
+
+      <p class="lede rise">Glide lines up what's actually due, then sits with you for twenty-five quiet minutes. Drop off for a week and it just says <b>welcome back.</b></p>
+
+      <form id="waitlist" class="rise" novalidate>
+        <label for="em">Email address</label>
+        <input id="em" name="email" type="email" placeholder="you@school.edu"
+               autocomplete="email" required aria-describedby="em-msg">
+        <button type="submit">Join the waitlist</button>
+      </form>
+
+      <div class="rise">
+        <p class="msg" id="em-msg" role="status" aria-live="polite"></p>
+        <p class="fineprint">Not released yet. One email when it lands, and that's the whole plan.</p>
+      </div>
+    </section>
+
+    <aside class="showcase">
+      <svg class="trail" viewBox="0 0 230 150" aria-hidden="true">
+        <path d="M8 142 C 60 128, 96 96, 124 62 S 178 16, 222 8"/>
+      </svg>
+
+      <div class="mark-sticker" aria-hidden="true">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" rx="30" fill="#6c7bf0"></rect>
+          <circle cx="33" cy="90" r="13" fill="none" stroke="#ffffff" stroke-width="7.5" stroke-linecap="round" stroke-dasharray="60 22" opacity="0.92"></circle>
+          <rect x="33" y="86.25" width="15" height="7.5" rx="3.75" fill="#ffffff" opacity="0.92"></rect>
+          <path d="M30 62.5 L88 33 C90.5 31.7 93 34.3 91.8 36.9 L69.5 86 C68.4 88.4 64.9 88.1 64.2 85.5 L59 66.5 L40.5 60.8 C37.9 60 38 56.3 40.6 55.7 Z" fill="#ffffff"></path>
+          <path d="M59 66.5 L91.8 36.9 L69.9 74.2 Z" fill="#cdd5fb"></path>
+        </svg>
+      </div>
+
+      <figure class="window">
+        <picture>
+          <!-- a Mac window is unreadable at phone width: show the phone build instead -->
+          <source media="(max-width:620px)" srcset="assets/shots/ios.png" width="244" height="529">
+          <img src="assets/shots/mac.png" width="829" height="529" decoding="async"
+               alt="Glide showing the day's plan, subject filters and a focus session ready at twenty-five minutes">
+        </picture>
+      </figure>
+
+      <div class="sticker timer">
+        <span class="t">25:00</span>
+        <span class="l">Phone down</span>
+      </div>
+      <div class="sticker streak">8 days in a row</div>
+      <div class="sticker decks">36 decks</div>
+    </aside>
+  </main>
+</div>
+
+<script>
+  (function () {
+    var form = document.getElementById('waitlist');
+    var input = document.getElementById('em');
+    var msg = document.getElementById('em-msg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var value = input.value.trim();
+      if (!value) { fail('We need an email address to reach you.'); return; }
+      if (!input.checkValidity()) {
+        fail("That doesn't look like an email address. Mind checking it?");
+        return;
+      }
+      succeed();
+    });
+
+    input.addEventListener('input', function () {
+      if (input.getAttribute('aria-invalid') === 'true') {
+        input.removeAttribute('aria-invalid');
+        msg.textContent = '';
+        msg.removeAttribute('data-state');
+      }
+    });
+
+    function fail(text) {
+      input.setAttribute('aria-invalid', 'true');
+      msg.setAttribute('data-state', 'error');
+      msg.textContent = text;
+      input.focus();
+    }
+
+    function succeed() {
+      input.removeAttribute('aria-invalid');
+      msg.setAttribute('data-state', 'ok');
+      msg.textContent = "You're on the list. We'll be in touch once, when it lands.";
+      input.value = '';
+      input.disabled = true;
+      form.querySelector('button').disabled = true;
+    }
+  })();
+</script>
+</body>
+</html>

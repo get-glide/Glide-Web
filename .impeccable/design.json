@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-22T19:30:00.000Z",
+  "title": "Design System: Glide Web",
+  "extensions": {
+    "colorMeta": {
+      "glide": {
+        "role": "primary",
+        "displayName": "Glide Periwinkle",
+        "canonical": "#6c7bf0",
+        "tonalRamp": ["#1b2050", "#2b3175", "#4450c2", "#5462df", "#6c7bf0", "#8a97f2", "#aab6f7", "#e6eafd"]
+      },
+      "sage-fill": {
+        "role": "secondary",
+        "displayName": "Sage Fill",
+        "canonical": "#a5d6c1",
+        "tonalRamp": ["#123f31", "#26594a", "#3c7d66", "#4c9a7e", "#5fae92", "#a5d6c1", "#dcefe6", "#eef7f2"]
+      },
+      "apricot-fill": {
+        "role": "secondary",
+        "displayName": "Apricot Fill",
+        "canonical": "#f6c3a1",
+        "tonalRamp": ["#5c3316", "#8a4a24", "#bd6537", "#dd7f4c", "#ee9a6b", "#f6c3a1", "#fbe6d8", "#fdf3ec"]
+      },
+      "lilac-fill": {
+        "role": "tertiary",
+        "displayName": "Lilac Fill",
+        "canonical": "#cdb6ec",
+        "tonalRamp": ["#3d2358", "#5c3a80", "#7b52a8", "#916dc9", "#a888dd", "#cdb6ec", "#ede4f8", "#f6f2fc"]
+      },
+      "coral-deep": {
+        "role": "error",
+        "displayName": "Coral Deep",
+        "canonical": "#b0483b",
+        "tonalRamp": ["#4a1d16", "#7a2f24", "#b0483b", "#cf5f51", "#e2776a", "#fadcd7", "#fdf0ee", "#fef7f6"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#fbf9f4",
+        "tonalRamp": ["#292933", "#45454f", "#6c6c78", "#9895a1", "#ded6c6", "#ece6da", "#f5f1e9", "#fbf9f4"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#292933",
+        "tonalRamp": ["#141419", "#292933", "#45454f", "#6c6c78", "#9895a1", "#c3bfc9", "#ece6da", "#fbf9f4"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The single hero headline. One per page, words colour-blocked." },
+      "headline": { "displayName": "Headline", "purpose": "Wordmark and section heads." },
+      "body": { "displayName": "Body", "purpose": "Supporting copy, held to roughly 42ch." },
+      "label": { "displayName": "Label", "purpose": "Sticker text, nav links, button labels, the status tag." },
+      "label-sm": { "displayName": "Label Small", "purpose": "The one micro-label on the surface, under the timer. The only uppercase text in the system." },
+      "meter": { "displayName": "Meter", "purpose": "Timers, counters and durations only. Never a technical costume." },
+      "meter-sm": { "displayName": "Meter Small", "purpose": "The meter's step below 620px." }
+    },
+    "shadows": [
+      { "name": "press", "value": "0 4px 0 #292933", "purpose": "Buttons and inputs at rest. Zero blur." },
+      { "name": "press-hover", "value": "0 6px 0 #292933", "purpose": "Hover state; element lifts 2px." },
+      { "name": "press-active", "value": "0 1px 0 #292933", "purpose": "Active state; element translates down 3px." },
+      { "name": "sticker", "value": "6px 7px 0 #292933", "purpose": "Every pinned sticker." },
+      { "name": "window", "value": "14px 16px 0 #aab6f7", "purpose": "The app window only, tinted periwinkle so it reads as the largest object." },
+      { "name": "tag", "value": "0 3px 0 #ee9a6b", "purpose": "Status tag, tinted to its own accent family." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.2, 0.9, 0.3, 1)", "purpose": "Default easing for entry and non-interactive transitions." },
+      { "name": "pop", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Ease-out-quint for hover and press chrome. Deliberately not a spring: the Glide motion rule reserves overshoot for celebratory product moments." },
+      { "name": "rise", "value": "0.7s ease, 90ms stagger", "purpose": "Hero entry cascade, top to bottom." },
+      { "name": "bob", "value": "5.2s to 6.4s ease-in-out, 9px travel", "purpose": "Bounded float on two elements only. Disabled under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sticker-collapse", "value": "620px" },
+      { "name": "single-column", "value": "1080px" },
+      { "name": "nav-inline", "value": "940px" },
+      { "name": "container-max", "value": "1480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The waitlist action. Sits on a hard ink shadow and physically depresses.",
+      "html": "<button class=\"ds-btn-primary\">Join the waitlist</button>",
+      "css": ".ds-btn-primary { min-height:56px; background:#5462df; color:#ffffff; border:2.5px solid #292933; border-radius:999px; padding:15px 30px; font-family:'Bricolage Grotesque',sans-serif; font-size:17px; font-weight:800; letter-spacing:-0.015em; cursor:pointer; box-shadow:0 4px 0 #292933; transition:transform .16s cubic-bezier(.22,1,.36,1), box-shadow .16s cubic-bezier(.2,.9,.3,1), background .16s cubic-bezier(.2,.9,.3,1); } .ds-btn-primary:hover { background:#6c7bf0; transform:translateY(-2px); box-shadow:0 6px 0 #292933; } .ds-btn-primary:active { transform:translateY(3px); box-shadow:0 1px 0 #292933; } .ds-btn-primary:focus-visible { outline:3px solid #5462df; outline-offset:3px; }"
+    },
+    {
+      "name": "Dark Nav Button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Nav action. Ink fill on a periwinkle shadow so it does not compete with the hero primary.",
+      "html": "<button class=\"ds-btn-dark\">Join the waitlist</button>",
+      "css": ".ds-btn-dark { display:inline-flex; align-items:center; min-height:46px; background:#292933; color:#fbf9f4; border:none; border-radius:999px; padding:0 24px; font-family:'Hanken Grotesk',system-ui,sans-serif; font-size:15.5px; font-weight:700; cursor:pointer; box-shadow:0 4px 0 #5462df; transition:transform .16s cubic-bezier(.22,1,.36,1), box-shadow .16s cubic-bezier(.2,.9,.3,1); } .ds-btn-dark:hover { transform:translateY(-2px); box-shadow:0 6px 0 #5462df; } .ds-btn-dark:active { transform:translateY(2px); box-shadow:0 2px 0 #5462df; } .ds-btn-dark:focus-visible { outline:3px solid #5462df; outline-offset:3px; }"
+    },
+    {
+      "name": "Email Input",
+      "kind": "input",
+      "refersTo": "input-email",
+      "description": "Waitlist capture field. White fill, heavy ink outline, resting on a paper shadow.",
+      "html": "<input class=\"ds-input-email\" type=\"email\" placeholder=\"you@school.edu\">",
+      "css": ".ds-input-email { min-height:56px; width:280px; background:#ffffff; border:2.5px solid #292933; border-radius:999px; padding:15px 22px; font-family:'Hanken Grotesk',system-ui,sans-serif; font-size:16px; font-weight:500; color:#292933; box-shadow:0 4px 0 #ded6c6; transition:box-shadow .18s cubic-bezier(.2,.9,.3,1), transform .18s cubic-bezier(.22,1,.36,1); } .ds-input-email::placeholder { color:#6c6c78; } .ds-input-email:hover { transform:translateY(-1px); box-shadow:0 5px 0 #ded6c6; } .ds-input-email:focus { outline:none; box-shadow:0 4px 0 #5462df; } .ds-input-email[aria-invalid=\"true\"] { border-color:#bd6537; box-shadow:0 4px 0 #ee9a6b; }"
+    },
+    {
+      "name": "Timer Sticker",
+      "kind": "custom",
+      "refersTo": "sticker-sage",
+      "description": "Focus-session sticker. Sage fill, mono meter, rotated off-axis with a hard ink shadow.",
+      "html": "<div class=\"ds-sticker-timer\"><span class=\"ds-t\">25:00</span><span class=\"ds-l\">Phone down</span></div>",
+      "css": ".ds-sticker-timer { display:inline-flex; flex-direction:column; align-items:center; gap:2px; background:#a5d6c1; color:#123f31; border:3px solid #292933; border-radius:20px; padding:14px 20px; transform:rotate(-6deg); box-shadow:6px 7px 0 #292933; font-family:'Hanken Grotesk',system-ui,sans-serif; } .ds-sticker-timer .ds-t { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:26px; font-weight:500; letter-spacing:-0.02em; line-height:1; } .ds-sticker-timer .ds-l { font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; }"
+    },
+    {
+      "name": "Note Sticker",
+      "kind": "chip",
+      "refersTo": "sticker-apricot",
+      "description": "Product-fact sticker. Any accent fill with its paired dark ink.",
+      "html": "<div class=\"ds-sticker-note\">8 days in a row</div>",
+      "css": ".ds-sticker-note { display:inline-flex; align-items:center; background:#f6c3a1; color:#5c3316; border:3px solid #292933; border-radius:999px; padding:11px 18px; font-family:'Hanken Grotesk',system-ui,sans-serif; font-size:15px; font-weight:700; transform:rotate(4deg); box-shadow:6px 7px 0 #292933; }"
+    },
+    {
+      "name": "Status Tag",
+      "kind": "chip",
+      "refersTo": "sticker-apricot",
+      "description": "Pre-launch status. The one small text element allowed above the hero headline.",
+      "html": "<p class=\"ds-tag\"><i></i> In the making, for iPhone and Mac</p>",
+      "css": ".ds-tag { display:inline-flex; align-items:center; gap:9px; margin:0; padding:9px 17px; border-radius:999px; background:#f6c3a1; color:#5c3316; font-family:'Hanken Grotesk',system-ui,sans-serif; font-size:15px; font-weight:700; transform:rotate(-1.6deg); box-shadow:0 3px 0 #ee9a6b; } .ds-tag i { width:8px; height:8px; border-radius:50%; background:#bd6537; flex:none; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "button-dark",
+      "description": "Pill-shaped hover target on the paper strip. No underline, no border.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\">How it works</a>",
+      "css": ".ds-nav-link { display:inline-flex; align-items:center; min-height:44px; padding:0 16px; color:#45454f; text-decoration:none; font-family:'Hanken Grotesk',system-ui,sans-serif; font-size:15.5px; font-weight:600; border-radius:999px; transition:background .18s cubic-bezier(.2,.9,.3,1), color .18s cubic-bezier(.2,.9,.3,1), transform .18s cubic-bezier(.22,1,.36,1); } .ds-nav-link:hover { background:#ece6da; color:#292933; transform:translateY(-2px); } .ds-nav-link:focus-visible { outline:3px solid #5462df; outline-offset:3px; }"
+    },
+    {
+      "name": "App Window",
+      "kind": "card",
+      "refersTo": "sticker-lilac",
+      "description": "Signature component. A real product screenshot framed in ink, rotated, on a periwinkle offset shadow.",
+      "html": "<figure class=\"ds-window\"><img src=\"assets/shots/mac.png\" alt=\"Glide showing the day's plan and a focus session\"></figure>",
+      "css": ".ds-window { margin:0; width:min(100%,600px); border:3px solid #292933; border-radius:28px; background:#ffffff; overflow:hidden; transform:rotate(2.4deg); box-shadow:14px 16px 0 #aab6f7; } .ds-window img { display:block; width:100%; height:auto; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sticker Desk",
+    "overview": "Glide's web surface is a student's desk seen from directly above: warm dotted stock, shapes cut from coloured paper and laid down flat, and the product itself pinned on top as physical stickers with hard, unblurred shadows. Nothing glows, nothing floats on a soft cloud, nothing fades into a gradient. Every element has an edge you could run a thumbnail along.\n\nThe Glide design system ships four accent families. Earlier iterations of this site spent one at a time and read as either timid or corporate. This world spends all four at once, as flat fields rather than accents on a neutral ground. Colour is the composition, not the trim. That is what separates this surface from the app it markets: the iOS and macOS products are calm and restrained by design, while the web has one job, which is to make a student stop scrolling.\n\nThe visual anti-references are confirmed and specific: the pale minimal calm-app landing page (soft pastel, one floating rounded screenshot, drop shadow, App Store badge), and the saturated dark hero that preceded this one. Both were built and both were rejected.",
+    "keyCharacteristics": [
+      "Flat cut-paper colour fields, hard edges, zero gradients",
+      "Hard offset shadows with no blur radius",
+      "All four accent families present on one screen",
+      "Product elements read as physical stickers, rotated off-axis",
+      "Chunky display type with words colour-blocked and one highlighter swipe",
+      "Warm paper stock with a faint notebook dot grid"
+    ],
+    "rules": [
+      { "name": "The Four Families Rule", "body": "Periwinkle, sage, apricot and lilac must all be visible in any full viewport. Dropping to one accent returns the surface to the timid version this world replaced.", "section": "colors" },
+      { "name": "The Ink Pairing Rule", "body": "Every accent fill has one matching dark ink for text placed on it: sage takes #123f31, apricot takes #5c3316, lilac takes #3d2358. Never put body ink or white on an accent fill; the pairings are chosen to clear 4.5:1 and the alternatives do not.", "section": "colors" },
+      { "name": "The Flat Fill Rule", "body": "Colour is applied as a solid fill. No gradients, no mesh, no tinted glass, anywhere on the surface.", "section": "colors" },
+      { "name": "The Same-Family Emphasis Rule", "body": "Emphasis inside a headline comes from colour-blocking a word in deep periwinkle or backing it with a highlighter swipe. Never switch typeface mid-headline.", "section": "typography" },
+      { "name": "The Measurement-Only Mono Rule", "body": "JetBrains Mono appears only on a value being measured, such as 25:00. It is never a costume for \"technical\".", "section": "typography" },
+      { "name": "The Sentence Case Rule", "body": "Sentence case everywhere, including buttons and headings, per the brand voice. The only uppercase is the tiny sticker label under the timer.", "section": "typography" },
+      { "name": "The No-Blur Rule", "body": "Every shadow has a zero blur radius. A blurred shadow anywhere on this surface is a defect.", "section": "elevation" },
+      { "name": "The Press-Depresses Rule", "body": "Interactive elements sit on their shadow at rest, lift on hover (shadow grows), and depress on :active (element translates down, shadow shrinks to 0 1px 0). The total height stays constant so nothing reflows.", "section": "elevation" },
+      { "name": "The Mark-Is-Exempt Rule", "body": "The logo tile's corner radius derives from the asset, not the UI scale. Use rounded.mark (25%, being rx 30 of a 120 viewBox) on any instance of the mark and never snap it to a pixel step.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep all four accent families visible in any full viewport.",
+      "Do pair each accent fill with its designated dark ink.",
+      "Do give every shadow a zero blur radius and a visible offset.",
+      "Do rotate stickers and product frames off-axis between 2 and 9 degrees.",
+      "Do let cut-paper shapes bleed off the viewport edge.",
+      "Do use real product screenshots, art-directed per breakpoint.",
+      "Do keep the timer in JetBrains Mono and everything else out of it.",
+      "Do write in sentence case, including buttons and headings."
+    ],
+    "donts": [
+      "Don't use a gradient. Not on backgrounds, not on text, not on fills.",
+      "Don't blur a shadow, or add a coloured glow.",
+      "Don't reduce the palette to a single accent on a neutral ground.",
+      "Don't switch typeface to emphasise a word inside a headline.",
+      "Don't use bounce or elastic easing on chrome. Spring is reserved for celebratory product moments, per the Glide motion rule.",
+      "Don't use an em-dash in any user-visible string.",
+      "Don't put white or body ink on an accent fill.",
+      "Don't alter the logo mark or wordmark in any way."
+    ]
+  }
+}
