@@ -1,0 +1,8 @@
+# Tooling artifacts
+.playwright-mcp/
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+.astro/
+
+# OS
+.DS_Store
